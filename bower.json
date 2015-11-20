@@ -1,0 +1,18 @@
+{
+  "name": "kaminario",
+  "description": "kaminario home work",
+  "main": "",
+  "moduleType": [
+    "es6"
+  ],
+  "authors": [
+    "asaflevy@me.com"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "mustache.js": "mustache#~2.2.0"
+  }
+}

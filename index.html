@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kaminario HomeWork</title>
+  <link rel="stylesheet" href="app/lib/bower/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div style="margin:10px;">
+
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+        Actions
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#" class="btn btn-large" data-toggle="modal" data-target="#myModal" data-event-name="add">Add New</a></li>
+        <li><a href="#" class="btn btn-large disabled" data-toggle="modal" data-target="#myModal" data-event-name="edit">Edit</a></li>
+        <li><a href="#" class="btn btn-large " data-event-name="delete">Delete</a></li>
+      </ul>
+    </div>
+
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th><input data-event-name="selectAll" type="checkbox"/></th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><input data-event-name="select" type="checkbox"/></td>
+          <td data-firstname>John</td>
+          <td data-lastname>Doe</td>
+          <td data-email>john@example.com</td>
+          <td data-age>17</td>
+        </tr>
+        <tr>
+          <td><input data-event-name="select" type="checkbox"/></td>
+          <td data-firstname>Mary</td>
+          <td data-lastname>Moe</td>
+          <td data-email>mary@example.com</td>
+          <td data-age>32</td>
+        </tr>
+        <tr>
+          <td><input data-event-name="select" type="checkbox"/></td>
+          <td data-firstname>July</td>
+          <td data-lastname>Dooley</td>
+          <td data-email>july@example.com</td>
+          <td data-age>14</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- Modal for add new / edit -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add new / Edit</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+              <!-- The actual form content-->
+              <div class="form-group">
+                <label for="firstname">Firstname:</label>
+                <input name="firstname" type="text" class="form-control" id="firstname">
+              </div>
+              <div class="form-group">
+                <label for="lastname">Lastname:</label>
+                <input name="lastname" type="text" class="form-control" id="lastname">
+              </div>
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input name="email"  type="email" class="form-control" id="email">
+              </div>
+              <div class="form-group">
+                <label for="age">Age:</label>
+                <input name="age" type="text" class="form-control" id="age">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" data-event-name="addOrUpdate">Add / Save</button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+<script src="app/lib/bower/jquery/dist/jquery.min.js"></script>
+<script src="app/lib/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="app/lib/bower/mustache.js/mustache.min.js"></script>
+<script src="app/js/main.js"></script>
+<script src="app/js/logic.js"></script>
+</body>
+</html>
