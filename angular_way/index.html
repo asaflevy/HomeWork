@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kaminario HomeWork</title>
+  <link rel="stylesheet" href="lib/bower/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="kaminarioApp">
+<div class="container" ng-controller="mainCtrl as appCtrl">
+  <div style="margin:10px;">
+
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+        Actions
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#" class="btn btn-large" data-toggle="modal" data-target="#myModal" data-event-name="add">Add New</a></li>
+        <li><a href="#" ng-click="appCtrl.editRow()" ng-class="{ 'disabled':appCtrl.numberOfMarksRows() > 1 || appCtrl.numberOfMarksRows() == 0   }" class="btn btn-large " data-toggle="modal" data-target="#myModal" data-event-name="edit">Edit</a></li>
+        <li><a href="#" ng-click="appCtrl.deleteSelectedRow()" ng-class="{ 'disabled': appCtrl.numberOfMarksRows() === 0   }"  class="btn btn-large " data-event-name="delete">Delete</a></li>
+      </ul>
+    </div>
+
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th><input data-event-name="selectAll" ng-click="appCtrl.markAll()" ng-model="appCtrl.markAllItemState" type="checkbox"/></th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-row-id="{{item._id}}" ng-repeat="item in appCtrl.tableRows">
+          <td><input  type="checkbox" ng-model="item.is_mark"/></td>
+          <td>{{ item.firstname }}</td>
+          <td>{{ item.lastname }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.age }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- Modal for add new / edit -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add new / Edit</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+              <!-- The actual form content-->
+              <div class="form-group">
+                <label for="firstname">Firstname:</label>
+                <input name="firstname" ng-model="appCtrl.copied_row.firstname" type="text" class="form-control" id="firstname">
+              </div>
+              <div class="form-group">
+                <label for="lastname">Lastname:</label>
+                <input name="lastname" ng-model="appCtrl.copied_row.lastname" type="text" class="form-control" id="lastname">
+              </div>
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input name="email" ng-model="appCtrl.copied_row.email"  type="email" class="form-control" id="email">
+              </div>
+              <div class="form-group">
+                <label for="age">Age:</label>
+                <input name="age" ng-model="appCtrl.copied_row.age" type="text" class="form-control" id="age">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" ng-click="appCtrl.saveRow()" data-event-name="addOrUpdate">Add / Save</button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+<script src="lib/bower/angular/angular.js"></script>
+<script src="lib/bower/jquery/dist/jquery.min.js"></script>
+<script src="lib/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/mainCtrl.js"></script>
+<script src="js/itemModel.srv.js"></script>
+</body>
+</html>
